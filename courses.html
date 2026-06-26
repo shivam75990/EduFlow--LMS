@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduFlow – My Courses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">EF</div>
+        <span class="sidebar-brand">EduFlow</span>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Main</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a href="courses.html" class="nav-item active">
+          <span class="nav-icon">📚</span>
+          <span class="nav-label">My Courses</span>
+        </a>
+        <a href="progress.html" class="nav-item">
+          <span class="nav-icon">📈</span>
+          <span class="nav-label">Progress</span>
+        </a>
+        <div class="nav-section-title">Library</div>
+        <a href="certificates.html" class="nav-item">
+          <span class="nav-icon">🎓</span>
+          <span class="nav-label">Certificates</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+          <span class="nav-icon">👤</span>
+          <span class="nav-label">Profile</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="profile.html" class="nav-item">
+          <span class="nav-icon">⚙️</span>
+          <span class="nav-label">Settings</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar" id="topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+          <button class="sidebar-toggle" id="sidebarToggle" aria-label="Collapse sidebar">◀</button>
+          <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search courses..." id="globalSearch" />
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn mobile-search-btn" id="mobileSearchBtn" aria-label="Search">🔍</button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+          <div class="dropdown">
+            <button class="icon-btn" id="notificationBell" aria-label="Notifications">
+              🔔
+              <span class="notification-badge">2</span>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="user-dropdown-btn" id="userDropdownBtn">
+              <div class="user-avatar">SK</div>
+              <span class="user-name-small">Shivam</span>
+            </button>
+            <div class="dropdown-menu" id="userDropdown">
+              <a href="profile.html" class="dropdown-item">👤 Profile</a>
+              <a href="#" class="dropdown-item">⚙️ Settings</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">🚪 Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile Search -->
+      <div class="mobile-search-bar" id="mobileSearchBar">
+        <input type="text" placeholder="Search courses..." />
+      </div>
+
+      <!-- Page Content -->
+      <div class="page-content">
+        <div style="margin-bottom:24px;">
+          <h1 style="font-size:28px;font-weight:700;">My Courses</h1>
+          <p style="color:var(--text-secondary);margin-top:4px;"><span id="courseCount">8</span> courses available</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-bar">
+          <input type="text" class="filter-select" id="courseSearch" placeholder="🔍 Search courses..." style="flex:1;min-width:200px;padding:8px 14px;border:1px solid var(--border-color);border-radius:var(--radius-sm);background:var(--bg-card);color:var(--text-primary);font-size:13px;" />
+          <select id="filterCategory" class="filter-select">
+            <option value="all">All Categories</option>
+            <option value="programming">Programming</option>
+            <option value="frontend">Frontend</option>
+            <option value="data science">Data Science</option>
+            <option value="cloud">Cloud</option>
+            <option value="design">Design</option>
+          </select>
+          <select id="filterProgress" class="filter-select">
+            <option value="all">All Progress</option>
+            <option value="not-started">Not Started</option>
+            <option value="in-progress">In Progress</option>
+            <option value="completed">Completed</option>
+          </select>
+          <select id="sortCourses" class="filter-select">
+            <option value="title">Sort: A-Z</option>
+            <option value="progress">Sort: Progress</option>
+            <option value="duration">Sort: Duration</option>
+          </select>
+        </div>
+
+        <!-- Courses Grid -->
+        <div class="courses-grid" id="coursesGrid"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notifications Panel -->
+  <div class="notifications-panel" id="notificationsPanel">
+    <div class="notifications-header">
+      <h3>Notifications</h3>
+      <button class="modal-close" id="notificationsClose">✕</button>
+    </div>
+    <div class="notifications-list" id="notificationsList"></div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
